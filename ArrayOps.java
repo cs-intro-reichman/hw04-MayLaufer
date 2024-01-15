@@ -21,10 +21,11 @@ public class ArrayOps {
     }
 
     public static int secondMaxValue(int [] array) {
-        int max = 0;
-        int secMax = 0;
+        int max = array[0];
+        int secMax = array[0];
+        int index = 0;
 
-        for (int i = 0; i < array.length; i++) {
+        /* for (int i = 1; i < array.length; i++) {
             if (array[i] > secMax) {
                 if (array[i] > max) {
                     max = array[i];
@@ -33,6 +34,22 @@ public class ArrayOps {
                 }
             }
 
+        } */
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+                index = i;
+            }
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            if (i == index) {
+                i++;
+            }
+            if (array[i] > secMax) {
+                secMax = array[i];
+            }
         }
         return secMax;
     }
