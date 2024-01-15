@@ -44,13 +44,13 @@ public class ArrayOps {
         }
 
         for (int i = 0; i < array.length; i++) {
-            if (i == index) {
-                i++;
-            }
-            if (array[i] > secMax) {
-                secMax = array[i];
+            if (i != index) {
+                if (array[i] > secMax) {
+                    secMax = array[i];
+                }    
             }
         }
+        
         return secMax;
     }
 

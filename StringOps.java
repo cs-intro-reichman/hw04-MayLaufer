@@ -61,21 +61,37 @@ public class StringOps {
         String newString = "";
         int j = 0;
 
-        while (string.charAt(j) == 32) {
-            if (string.charAt(j+1) != 32) {
-                currentChar = string.charAt(j+1);
-                if (string.charAt(j+1) >= 'A' && string.charAt(j+1) <= 'Z') {
-                currentChar = capToSmall(currentChar);
+        // Handle the first letter
+        switch (string.charAt(j)) {
+            case 32:
+                while (string.charAt(j) == 32) {
+                    if (string.charAt(j+1) != 32) {
+                        currentChar = string.charAt(j+1);
+                        if (string.charAt(j+1) >= 'A' && string.charAt(j+1) <= 'Z') {
+                        currentChar = capToSmall(currentChar);
+                        }
+                        newString += currentChar;
+                        j++;
+                        break;
+                    } else {
+                        j++;
+                    }
                 }
+                    break;
+        
+            default:
+                if (string.charAt(j) >= 'A' && string.charAt(j) <= 'Z') {
+                    currentChar = capToSmall(currentChar);
+                    }
                 newString += currentChar;
                 break;
-            } else {
-                j++;
-            }
         }
 
+        // System.out.println(newString);
+    
+
         // Change all other letters to small letters
-        for (int i = j + 2; i < string.length(); i++) {
+        for (int i = j + 1; i < string.length(); i++) {
             currentChar = string.charAt(i);
             if (currentChar != 32) {
                 if (currentChar != 32 & currentChar >= 'A' && currentChar <= 'Z') {
