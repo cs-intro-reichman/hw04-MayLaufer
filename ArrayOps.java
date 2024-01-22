@@ -6,6 +6,8 @@ public class ArrayOps {
         int actualSum = 0;
         int expectedSum = 0;
 
+        // #feedback - you can have one loop and iterate only once to calculate both sums.
+
         // computing the actual sum
         for (int i = 0; i < array.length; i++) {
             actualSum += array[i];
@@ -25,6 +27,7 @@ public class ArrayOps {
         int secMax = array[0];
         int index = 0;
 
+        // #feedback - please remove any unnecessary comments when submitting.
         /* for (int i = 1; i < array.length; i++) {
             if (array[i] > secMax) {
                 if (array[i] > max) {
@@ -55,6 +58,7 @@ public class ArrayOps {
     }
 
     public static boolean containsTheSameElements(int [] array1,int [] array2) {
+        // #feedback - you should also check the other direction - if elements in array2 are in array1.
         int count = 0;
         for (int i = 0; i < array1.length; i++) {
             count = 0;
@@ -68,6 +72,7 @@ public class ArrayOps {
             }
         }
 
+        // #feedback - this can be just - "return count != 0"
         if (count != 0) {
             return true;
         } else {

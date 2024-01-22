@@ -33,6 +33,7 @@ public class StringOps {
         for (int i = 0; i < string.length(); i++) {
             char currentChar = string.charAt(i);
             if (currentChar >= 'a' && currentChar <= 'z') {
+                // #feedback - you can use smallVowels.indexOf(currentChar) to know if the current character is a lower case vowel.
                 for (int j = 0; j < smallVowels.length(); j++) {
                     if (currentChar == smallVowels.charAt(j)) {
                         currentChar = smallToCap(currentChar);
@@ -63,8 +64,9 @@ public class StringOps {
 
         // Handle the first letter
         switch (string.charAt(j)) {
-            case 32:
+            case 32: // #feedback - it is better here to use the actual character than its character representation
                 while (string.charAt(j) == 32) {
+                    // #feedback - you should check that it is possible to access the j+1 element and you didn't reach the end of the string.
                     if (string.charAt(j+1) != 32) {
                         currentChar = string.charAt(j+1);
                         if (string.charAt(j+1) >= 'A' && string.charAt(j+1) <= 'Z') {
@@ -74,12 +76,14 @@ public class StringOps {
                         j++;
                         break;
                     } else {
+                        // #feedback - also here, you should check that increasing j will still be in the range of the string.
                         j++;
                     }
                 }
                     break;
         
             default:
+                // #feedback - you have this check throughout the code, consider having helper functions to avoid code repetitions.
                 if (string.charAt(j) >= 'A' && string.charAt(j) <= 'Z') {
                     currentChar = capToSmall(currentChar);
                     }
@@ -94,6 +98,7 @@ public class StringOps {
         for (int i = j + 1; i < string.length(); i++) {
             currentChar = string.charAt(i);
             if (currentChar != 32) {
+                // #feedback - no need to check again that the char is not a space since we already checked it in the previous if.
                 if (currentChar != 32 & currentChar >= 'A' && currentChar <= 'Z') {
                     currentChar = capToSmall(currentChar);
                 }
